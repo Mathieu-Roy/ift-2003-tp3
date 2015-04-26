@@ -1,3 +1,24 @@
+% Auteur: Mathieu Roy, Nicolas Garneau, Philippe Chayer
+% Date: 25/04/2015
+
+% Mécanique
+% Permet de lancer le programme
+%go :- write('Que désirez-vous connaître sur le touriste à Québec?'), nl,
+%        lire(Chaine,Resultat), p(Resultat,[]).
+
+% Permet de traduire une phrase en une liste de mots
+%lire(Chaine,Resultat):-write('Entrer une question: '), read(Chaine),
+%        name(Chaine, Temp), chaine_liste(Temp, Resultat),!.
+
+% Prédicat de transformation de chaîne en liste
+%chaine_liste([],[]).
+%chaine_liste(Liste,[Mot|Reste]):-separer(Liste,32,A,B), name(Mot,A),chaine_liste(B,Reste).
+
+% Sépare une liste par rapport à un élément
+%separer([],X,[],[]):-!.
+%separer([X|R],X,[],R):-!.
+%separer([A|R],X,[A|Av],Ap):-X\==A, |, separer(R,X,Av,Ap).
+
 % Analyse grammaticale pour une question
 p( ACT, AGNT, ADV ) --> adv(ADV, N), gv(ACT, N), gn(AGNT, N). % phrase commence par un adverbe
 p( ADJ, AGNT, ADV ) --> adv(ADV, N), gn(AGNT, N), gv(_, _), adj(ADJ, N). % phrase commence par un adjectif
@@ -35,10 +56,14 @@ dictionnaire('le', article(singulier)).
 dictionnaire('un', article(singulier)).
 dictionnaire('des', article(pluriel)).
 dictionnaire('en', article(singulier)).
+dictionnaire('au', article(singulier)).
+dictionnaire('à', article(singulier)).
 
 % adverbes
 dictionnaire('où', adverbe(singulier)).
 dictionnaire('quand', adverbe(singulier)).
+dictionnaire('qui', adverbe(singulier)).
+dictionnaire('pourquoi', adverbe(singulier)).
 
 % adjectifs
 dictionnaire('ouvert', adjectif(singulier)).
@@ -52,6 +77,8 @@ dictionnaire('Festival d\'été de Québec', nom_commun(singulier)).
 dictionnaire('Café du Monde', nom_commun(singulier)).
 dictionnaire('Boulevard Champlain', nom_commun(singulier)).
 dictionnaire('Grande Allée', nom_commun(singulier)).
+dictionnaire('Musée de la civilisation', nom_commun(singulier)).
+dictionnaire('Québec', nom_commun(singulier)).
 
 % noms communs
 dictionnaire('évènement', nom_commun(singulier)).
@@ -61,10 +88,14 @@ dictionnaire('juillet', nom_commun(singulier)).
 dictionnaire('se trouve', verbe(singulier)).
 dictionnaire('est-il', verbe(singulier)).
 dictionnaire('a lieu', verbe(singulier)).
+dictionnaire('habite', verbe(singulier)).
+dictionnaire('neige-t-il', verbe(singuier)).
 
 %----------------------------------
 % Base de connaissance. En rajouter ici!
 %----------------------------------
-'se trouve'('Château Frontenac', 'où', 'Vieux Québec').
+'se trouve'('Musée de la civilisation', 'où', 'Vieux Québec').
 'ouvert'('Musée des Beaux-Arts', 'quand', '10h à 17h').
 'quel'('évènement', 'juillet', 'Festival d\'été de Québec').
+'habite'('Château Frontenac', 'qui', 'personne, c\'est un hôtel').
+'neige-t-il'('Québec', 'pourquoi', 'parce qu\'il fait froid').
