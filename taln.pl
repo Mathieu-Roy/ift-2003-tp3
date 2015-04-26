@@ -35,10 +35,12 @@ dictionnaire('le', article(singulier)).
 dictionnaire('un', article(singulier)).
 dictionnaire('des', article(pluriel)).
 dictionnaire('en', article(singulier)).
+dictionnaire('au', article(singulier)).
 
 % adverbes
 dictionnaire('où', adverbe(singulier)).
 dictionnaire('quand', adverbe(singulier)).
+dictionnaire('qui', adverbe(singulier)).
 
 % adjectifs
 dictionnaire('ouvert', adjectif(singulier)).
@@ -52,6 +54,7 @@ dictionnaire('Festival d\'été de Québec', nom_commun(singulier)).
 dictionnaire('Café du Monde', nom_commun(singulier)).
 dictionnaire('Boulevard Champlain', nom_commun(singulier)).
 dictionnaire('Grande Allée', nom_commun(singulier)).
+dictionnaire('Musée de la civilisation', nom_commun(singulier)).
 
 % noms communs
 dictionnaire('évènement', nom_commun(singulier)).
@@ -61,10 +64,12 @@ dictionnaire('juillet', nom_commun(singulier)).
 dictionnaire('se trouve', verbe(singulier)).
 dictionnaire('est-il', verbe(singulier)).
 dictionnaire('a lieu', verbe(singulier)).
+dictionnaire('habite', verbe(singulier)).
 
 %----------------------------------
 % Base de connaissance. En rajouter ici!
 %----------------------------------
-'se trouve'('Château Frontenac', 'où', 'Vieux Québec').
+'se trouve'('Musée de la civilisation', 'où', 'Vieux Québec').
 'ouvert'('Musée des Beaux-Arts', 'quand', '10h à 17h').
 'quel'('évènement', 'juillet', 'Festival d\'été de Québec').
+'habite'('Château Frontenac', 'qui', 'personne, c\'est un hôtel').
